@@ -1,0 +1,10 @@
+---
+import Blocks from '@/components/blocks'
+import Layout from './Layout.astro'
+
+const props = Astro.props
+---
+
+<Layout {...props}>
+  <Blocks blocks={props.blocks} />
+</Layout>

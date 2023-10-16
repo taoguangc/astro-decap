@@ -1,0 +1,23 @@
+---
+import Image from '@/components/Image.astro'
+import Link from './Link.astro'
+import FormattedDate from '@/components/FormattedDate.astro'
+
+// utils imports
+// import { slugify, formatDate } from '../utils/utils'
+
+const { data, url } = Astro.props
+
+const { title, description, pubDate, heroImage } = data
+---
+
+<article class="card">
+  <a href={`/blog/${url}/`} class="block">
+    <Image src={heroImage} alt="" />
+    <h4 class="py-2 text-xl font-bold tracking-normal">{title}</h4>
+    <h5 class="line-clamp-2 text-lg">{description}</h5>
+    <p class="mt-2 text-sm">
+      <FormattedDate date={pubDate} />
+    </p>
+  </a>
+</article>

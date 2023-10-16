@@ -1,0 +1,121 @@
+/* custom fonts */
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrope-latin-300-normal.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrope-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrope-latin-500-normal.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrope-latin-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrope-latin-800-normal.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* lenis */
+/* html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+} */
+
+/* base */
+body {
+  font-family: 'Manrope', sans-serif;
+  @apply bg-gray-50;
+}
+
+[x-cloak] {
+  visibility: hidden !important;
+}
+
+h1 {
+  clip-path: polygon(0 0, 100% 0, 100% 102%, 0 102%);
+}
+
+h1 span {
+  display: inline-block;
+  transform: translateY(100%);
+  transition: transform 0.5s;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-medium tracking-wider;
+}
+
+.stroke {
+  color: transparent;
+  -webkit-text-stroke: 1px #1d1d1d;
+}
+
+/* Animation */
+html.is-changing .transition-fade {
+  transition: 0.5s;
+  opacity: 1;
+}
+html.is-animating .transition-fade {
+  opacity: 0;
+}
+
+.slide-down {
+  animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* prose style */
+.prose p {
+  @apply mb-4 leading-relaxed;
+}

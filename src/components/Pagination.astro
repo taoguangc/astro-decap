@@ -1,0 +1,75 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import type { Page } from 'astro'
+
+export interface Props {
+  base: string
+  page: Page<CollectionEntry<'blog'>>
+}
+
+const { base, page } = Astro.props
+const pathname = new URL(Astro.request.url).pathname.split('/')
+const firstPath = pathname[1]
+const paginationList = Array.from({ length: page.lastPage }, (_, i) => i + 1)
+---
+
+{
+  page.size < page.total && (
+    <nav class="relative z-0 inline-flex -space-x-px" aria-label="Pagination">
+      <a
+        href={page.url.prev ? import.meta.env.BASE_URL + page.url.prev.slice(1) : '#'}
+        class:list={[
+          'relative inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium',
+          page.url.prev
+            ? 'border-2 bg-white text-gray-700 hover:border-gray-900 hover:bg-gray-900 hover:text-white'
+            : 'pointer-events-none cursor-default bg-gray-200 text-gray-400',
+        ]}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="h-6 w-6"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
+        </svg>
+      </a>
+      <div class="px-6">
+        {paginationList.map((i: number) => (
+          <a
+            href={import.meta.env.BASE_URL + base + (i == 1 ? '' : '/' + i)}
+            aria-current="page"
+            class:list={[
+              i == page.currentPage ? 'z-10 font-semibold text-black' : 'border-purple-300 text-gray-400',
+              'relative inline-flex items-center px-4 py-2 text-sm font-medium',
+            ]}
+          >
+            {i}
+          </a>
+        ))}
+      </div>
+      <a
+        href={page.url.next ? import.meta.env.BASE_URL + page.url.next.slice(1) : '#'}
+        class:list={[
+          'relative inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium',
+          page.url.next
+            ? 'border-2 bg-white text-gray-700 hover:border-gray-900 hover:bg-gray-900 hover:text-white'
+            : 'pointer-events-none cursor-default bg-gray-200 text-gray-400',
+        ]}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="h-6 w-6"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+        </svg>
+      </a>
+    </nav>
+  )
+}

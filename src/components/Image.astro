@@ -1,0 +1,49 @@
+---
+import type { ImageOutputFormat } from 'astro'
+import { getImage } from 'astro:assets'
+
+type Props = {
+  src: ImageMetadata
+  alt: string
+  sizes?: number[]
+  format?: ImageOutputFormat
+  loading?: 'lazy' | 'eager'
+  class?: string
+}
+
+async function generateImage({ src, sizes = [768, 1024, 1280], format }: Omit<Props, 'alt'>) {
+  const imgSrcSet = sizes.map(async (size) => {
+    const image = await getImage({ src, width: size, format })
+    return `${image.src} ${size}w`
+  })
+
+  const imgSrc = await getImage({ src, format })
+
+  return {
+    srcSet: await Promise.all(imgSrcSet),
+    imgSrc: imgSrc.src,
+    width: imgSrc.attributes.width,
+    height: imgSrc.attributes.height,
+  }
+}
+
+const { src, alt, sizes, format, loading, class: className } = Astro.props
+
+const { srcSet, imgSrc, width, height } = await generateImage({
+  src,
+  sizes,
+  format,
+})
+---
+
+<img
+  src={imgSrc}
+  srcset={srcSet.join(', ')}
+  sizes="100vw"
+  width={width}
+  height={height}
+  decoding="async"
+  loading={loading}
+  alt={alt}
+  class={className}
+/>

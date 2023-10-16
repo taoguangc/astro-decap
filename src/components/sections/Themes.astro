@@ -1,0 +1,32 @@
+---
+import Image from '@/components/Image.astro'
+import builder from '@/assets/img/builder-desktop.webp'
+---
+
+<section class="bg-neutral-900 py-24">
+  <div class="container mx-auto flex flex-col items-start gap-16 px-4 text-white lg:flex-row lg:px-8">
+    <div class="flex-auto">
+      <h3 class="mb-4 text-sm">THEMES LIBRARY</h3>
+      <h2 class="text-5xl font-semibold">我们的主题库</h2>
+    </div>
+    <div class="shrink">
+      <p class="mb-4 tracking-widest">以完全精确和易于理解的界面编辑和设计您的网站。<br />唤起你内心的设计师。</p>
+      <a href="#" class="flex flex-row items-center text-lg">
+        浏览主题库&nbsp;
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="h-4 w-4"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="container mx-auto flex items-center justify-center p-8 md:p-16 lg:p-32">
+    <Image src={builder} alt="主题生成器" />
+  </div>
+</section>

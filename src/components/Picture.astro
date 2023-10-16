@@ -1,0 +1,52 @@
+---
+import type { ImageOutputFormat } from 'astro'
+import { getImage } from 'astro:assets'
+
+type Props = {
+  src: ImageMetadata
+  alt: string
+  sizes?: number[]
+  format?: ImageOutputFormat
+  loading?: 'lazy' | 'eager'
+  class?: string
+}
+
+async function generatePicture({ src, sizes = [720, 960, 1280], format }: Omit<Props, 'alt'>) {
+  const imgSrcSet = sizes.map(async size => {
+    const image = await getImage({ src, width: size, format })
+    return `${image.src} ${size}w`
+  })
+
+  const imgSrc = await getImage({ src, format })
+
+  return {
+    srcSet: await Promise.all(imgSrcSet),
+    imgSrc: imgSrc.src,
+    width: imgSrc.attributes.width,
+    height: imgSrc.attributes.height
+  }
+}
+
+const { src, alt, sizes, format, loading, class: className } = Astro.props
+
+const { srcSet, imgSrc, width, height } = await generatePicture({
+  src,
+  sizes,
+  format
+})
+---
+
+<img
+  srcset={srcSet.join(', ')} src={imgSrc} width={width}
+  height={height}
+  decoding='async'
+  loading={loading}
+  alt={alt}
+  class={className}
+/>
+
+<picture>
+  <source media='(min-width: 650px)' srcset='demo1.jpg' />
+  <source media='(min-width: 465px)' srcset='demo2.jpg' />
+  <img src={imgSrc} width={width} height={height} decoding='async' loading={loading} alt={alt} class={className} />
+</picture>

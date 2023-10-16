@@ -1,0 +1,40 @@
+---
+import type { Page, PaginateFunction } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+import PostCard from '@/components/PostCard.astro'
+import Pagination from '@/components/Pagination.astro'
+
+export interface Props {
+  page: Page<CollectionEntry<'blog'>>
+}
+const { page } = Astro.props
+const collectionPath = Astro.url.pathname.split('/')[1]
+
+export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
+  const posts = (await getCollection('posts')).sort((a, b) => +a.data.pubDate.valueOf() - +b.data.pubDate.valueOf())
+  return paginate(posts, { pageSize: 4 })
+}
+---
+
+<Layout title="Emptyarea" description="Design your website">
+  <section>
+    <div class="container mx-auto my-32 px-4 lg:px-8">
+      <h6 class="mb-4 text-sm text-neutral-600">MY BLOG</h6>
+      <h1 class="text-5xl font-semibold tracking-wider">博客文章</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="container mx-auto my-32 grid grid-cols-2 gap-12 px-4 lg:px-8">
+      {page.data.map((post: any) => <PostCard data={post.data} url={post.slug} />)}
+    </div>
+  </section>
+
+  <section>
+    <div class="container mx-auto mb-24 flex flex-row justify-center px-4 lg:px-8">
+      <Pagination base={collectionPath} page={page} />
+    </div>
+  </section>
+</Layout>

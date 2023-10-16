@@ -1,0 +1,35 @@
+---
+// import { ViewTransitions } from 'astro:transitions'
+import '@/assets/css/main.css'
+import Header from '@/components/Header.astro'
+import Footer from '@/components/Footer.astro'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const { title = 'Emptyarea', description = 'Design your website' } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content="{description}" />
+  </head>
+  <body class="min-h-screen overflow-x-hidden antialiased" x-data="{ isOpen: false }">
+    <main>
+      <Header />
+      <slot />
+      <Footer />
+    </main>
+    <script>
+      import '@/assets/js/main.js'
+    </script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+---
+import menu from '@/data/menu.json'
+import HeaderLink from './HeaderLink.astro'
+---
+
+<header>
+  <nav
+    class="fixed top-0 z-30 flex w-full flex-wrap items-center justify-between border-b border-black/5 bg-white px-8 py-2 text-lg font-medium shadow-[0_10px_40px_40px_rgba(0,0,0,0.025)] md:px-16 md:py-6 lg:text-xl"
+    x-data="scrollToReveal()"
+    x-ref="navbar"
+    @scroll.window="scroll()"
+    :class="sticky ? 'transition-transform duration-500 ease-out translate-y-0' : 'transition-transform duration-500 ease-out -translate-y-[101%]'"
+  >
+    <figure class="flex items-center">
+      <a href="/" aria-label="emptyarea.com" class="text-indigo-500">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="288"
+          height="42"
+          viewBox="0 0 288 42"
+          class="w-48 lg:w-60"
+          ><defs
+            ><clipPath id="e"><rect id="svg" width="56" height="42" transform="translate(127 0)"></rect></clipPath
+            ></defs
+          ><path
+            id="EMPTY AREA"
+            d="M1.96191 31L1.96191 12.9668L14.1367 12.9668L14.1367 14.7852L4.25879 14.7852L4.25879 21.0879L13.1318 21.0879L13.1318 22.8789L4.25879 22.8789L4.25879 29.209L14.1367 29.209L14.1367 31L1.96191 31ZM23.1019 31L23.1019 12.9668L25.5629 12.9668L31.6673 25.4834L37.7718 12.9668L40.2328 12.9668L40.2328 31L37.9701 31L37.9701 16.5488L32.4535 27.8623L30.9154 27.8623L25.3646 16.5488L25.3646 31L23.1019 31ZM49.7579 31L49.7579 12.9668L57.3731 12.9668Q60.3946 12.9668 61.8233 14.5938Q63.2521 16.2139 63.2521 18.791Q63.2521 21.4229 61.6388 22.9541Q60.0323 24.4785 57.2569 24.4785L52.0548 24.4785L52.0548 31L49.7579 31ZM52.0548 22.6807L56.8946 22.6807Q58.9112 22.6807 59.9298 21.6348Q60.9552 20.582 60.9552 18.791Q60.9552 16.8906 59.9845 15.8379Q59.0206 14.7852 57.0382 14.7852L52.0548 14.7852L52.0548 22.6807ZM76.5211 31L76.5211 14.7852L70.5328 14.7852L70.5328 12.9668L84.8131 12.9668L84.8131 14.7852L78.818 14.7852L78.818 31L76.5211 31ZM98.8128 31L98.8128 24.2803L92.3734 12.9668L94.7523 12.9668L99.9613 22.3184L105.17 12.9668L107.549 12.9668L101.11 24.2803L101.11 31L98.8128 31ZM197.736 31L204.627 12.9668L209.494 12.9668L216.385 31L211.682 31L210.055 26.9121L204.039 26.9121L202.439 31L197.736 31ZM204.654 23.583L209.439 23.583L207.033 17.3076L204.654 23.583ZM224.281 31L224.281 12.9668L233.297 12.9668Q236.49 12.9668 238 14.6484Q239.511 16.3301 239.511 19.1533Q239.511 20.9785 238.588 22.3525Q237.666 23.7197 236.066 24.3896Q236.462 24.6973 236.695 25.0801Q236.934 25.4561 237.214 26.126L239.347 31L234.637 31L232.627 26.4062Q232.375 25.8184 231.978 25.5518Q231.588 25.2852 230.857 25.2852L228.786 25.2852L228.786 31L224.281 31ZM228.786 21.8193L232.122 21.8193Q233.434 21.8193 234.172 21.1631Q234.917 20.5 234.917 19.1533Q234.917 16.4395 232.313 16.4395L228.786 16.4395L228.786 21.8193ZM247.409 31L247.409 12.9668L260.705 12.9668L260.705 16.4395L251.914 16.4395L251.914 20.2197L259.672 20.2197L259.672 23.7471L251.914 23.7471L251.914 27.5273L260.705 27.5273L260.705 31L247.409 31ZM267.904 31L274.795 12.9668L279.662 12.9668L286.553 31L281.85 31L280.223 26.9121L274.207 26.9121L272.607 31L267.904 31ZM274.822 23.583L279.607 23.583L277.201 17.3076L274.822 23.583Z"
+            fill-rule="evenodd"
+            fill="#000000"></path><g clip-path="url(#e)" fill="#000000"
+            ><path d="M127 0L183 0L176 14L134 14L127 0Z"></path><path d="M134 28L176 28L183 42L127 42L134 28Z"
+            ></path><path d="M137.5 0L127 0L127 42L137.5 42L137.5 0Z"></path><path
+              d="M170.75 10.5L139.25 10.5C136.35 10.5 134 12.8506 134 15.75L134 26.25C134 29.1494 136.35 31.5 139.25 31.5L170.75 31.5C173.65 31.5 176 29.1494 176 26.25L176 15.75C176 12.8506 173.65 10.5 170.75 10.5Z"
+              fill="#FFFFFF"></path><path
+              d="M168.125 15.75L141.875 15.75C140.425 15.75 139.25 16.9253 139.25 18.375L139.25 23.625C139.25 25.0747 140.425 26.25 141.875 26.25L168.125 26.25C169.575 26.25 170.75 25.0747 170.75 23.625L170.75 18.375C170.75 16.9253 169.575 15.75 168.125 15.75Z"
+              fill="#000000"></path></g
+          ></svg
+        >
+      </a>
+      <figcaption class="hidden">emptyarea.com</figcaption>
+    </figure>
+    <div class="hidden text-center md:flex md:w-auto md:items-center">
+      <ul class="flex gap-12 lg:gap-16">
+        {menu.map((item) => <HeaderLink href={item.link}>{item.title}</HeaderLink>)}
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<button
+  type="button"
+  class="fixed right-6 top-2 z-50 flex items-center justify-center px-0 py-2 md:hidden md:p-4"
+  @click="isOpen = !isOpen"
+  aria-controls="mobile-menu"
+  aria-expanded="false"
+>
+  <span class="sr-only">Open main menu</span>
+  <svg
+    class="h-8 w-8"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="#333"
+    aria-hidden="true"
+    x-show="!isOpen"
+  >
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+  </svg>
+  <svg
+    class="h-8 w-8"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="#fff"
+    aria-hidden="true"
+    x-show="isOpen"
+  >
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+  </svg>
+</button>
+<div
+  class="fixed inset-0 z-40 bg-black"
+  x-show="isOpen"
+  x-cloak
+  x-transition:enter="transition ease-out duration-500"
+  x-transition:enter-start="transform translate-x-full"
+  x-transition:leave="transition ease-in duration-500"
+  x-transition:leave-end="transform -translate-x-full"
+>
+  <ul class="mx-auto flex flex-col items-start p-24 text-white">
+    <li class="relative my-8 text-xl">
+      <a class="group block" href="https://emptyarea.com/">Home</a>
+    </li>
+    <li class="relative my-8 text-xl">
+      <a class="group block" href="https://emptyarea.com/work/">Work</a>
+    </li>
+    <li class="relative my-8 text-xl">
+      <a class="group block" href="https://emptyarea.com/about/">About</a>
+    </li>
+    <li class="relative my-8 text-xl">
+      <a class="group block" href="https://emptyarea.com/contact/">Contact</a>
+    </li>
+  </ul>
+</div>
