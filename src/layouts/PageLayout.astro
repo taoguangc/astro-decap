@@ -1,10 +1,14 @@
 ---
-import Blocks from '@/components/blocks'
 import Layout from './Layout.astro'
 
 const props = Astro.props
 ---
 
 <Layout {...props}>
-  <Blocks blocks={props.blocks} />
+  <section class="mt-24 py-24">
+    <div class="container mx-auto">
+      <h1 class="text-5xl leading-normal">Heading 1{props.title}</h1>
+    </div>
+  </section>
+  <slot />
 </Layout>

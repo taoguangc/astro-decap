@@ -1,5 +1,5 @@
 ---
-title: 首页
+title: 关于我们
 seo:
   page_description: 网站描述
   canonical_url:

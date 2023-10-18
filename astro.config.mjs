@@ -37,6 +37,15 @@ export default defineConfig({
               { name: 'body', widget: 'markdown', label: 'Post Body' },
             ],
           },
+          {
+            name: 'menu',
+            label: '菜单',
+            file: 'src/data/menu.json',
+            fields: [
+              { name: 'title', widget: 'string', label: '标题' },
+              { name: 'link', widget: 'string', label: '链接' },
+            ],
+          },
         ],
       },
     }),

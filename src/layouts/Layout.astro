@@ -23,11 +23,9 @@ const { title = 'Emptyarea', description = 'Design your website' } = Astro.props
     <meta name="description" content="{description}" />
   </head>
   <body class="min-h-screen overflow-x-hidden antialiased" x-data="{ isOpen: false }">
-    <main>
-      <Header />
-      <slot />
-      <Footer />
-    </main>
+    <Header />
+    <slot />
+    <Footer />
     <script>
       import '@/assets/js/main.js'
     </script>

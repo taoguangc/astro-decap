@@ -4,9 +4,9 @@ import Layout from '@/layouts/Layout.astro'
 import FormattedDate from '@/components/FormattedDate.astro'
 import Image from '@/components/Image.astro'
 
-type Props = CollectionEntry<'blog'>['data']
+type Props = CollectionEntry<'posts'>['data']
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props
+const { title, description, pubDate, heroImage } = Astro.props
 ---
 
 <Layout title={title} description={description}>
@@ -15,13 +15,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
     <hr />
     <h5 class="my-4 text-neutral-500">
       <FormattedDate date={pubDate} />
-      {
-        updatedDate && (
-          <div class="last-updated-on">
-            Last updated on <FormattedDate date={updatedDate} />
-          </div>
-        )
-      }
     </h5>
     <div class="my-12">
       {heroImage && <Image src={heroImage} alt={title} class="w-full" />}
