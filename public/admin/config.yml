@@ -1,0 +1,27 @@
+backend:
+  name: github
+  repo: taoguangc/astro-decap #replace with your githu repo
+  branch: main
+  #squash_merges: true
+  #open_authoring: true
+
+publish_mode: editorial_workflow
+media_folder: public/images
+public_folder: /images
+site_url: 'https://astro-decapcms.netlify.app/' # your site name
+
+collections:
+  - name: post
+    label: Posts
+    folder: src/content/posts
+    create: true
+    format: frontmatter
+    preview_path: post/{{slug}}
+    fields:
+      - { name: title, label: 标题 }
+      - { name: description, label: 描述 }
+      - { name: pubDate, label: Date, widget: date }
+      - { name: heroImage, label: 图像, widget: image }
+      - { label: 'Publish', name: 'isPublish', widget: 'boolean', default: true }
+      - { label: 'Draft', name: 'isDraft', widget: 'boolean', default: false }
+      - { name: body, label: Body, widget: markdown }

@@ -19,7 +19,6 @@
     "@types/alpinejs": "^3.13.3",
     "alpinejs": "^3.13.2",
     "astro": "^3.3.2",
-    "astro-netlify-cms": "^0.5.4",
     "astro-robots-txt": "^1.0.0",
     "gsap": "^3.12.2",
     "sharp": "^0.32.6"
