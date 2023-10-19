@@ -6,7 +6,7 @@ backend:
   open_authoring: true
 
 publish_mode: editorial_workflow
-media_folder: src/content/posts
+media_folder: /src/content/posts
 public_folder: /_astro
 site_url: 'https://astro-decapcms.netlify.app/' # your site name
 
