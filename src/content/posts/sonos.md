@@ -1,12 +1,13 @@
 ---
-title: '了解Sonos Roam超便携式智能音响，让Sonos体验与您畅快随行'
-description: 'Sonos最智能且功能最全面的音响能够以小巧体积呈现惊人效果，易于设置和控制，在卓越、轻巧且耐用的设计中融入了新颖的创新功能。'
-pubDate: 'Jul 08 2023'
-heroImage: './blog-placeholder-3.jpg'
+title: 了解Sonos Roam超便携式智能音响，让Sonos体验与您畅快随行
+description: Sonos最智能且功能最全面的音响能够以小巧体积呈现惊人效果，易于设置和控制，在卓越、轻巧且耐用的设计中融入了新颖的创新功能。
+pubDate: Jul 08 2023
+heroImage: ./blog-placeholder-3.jpg
 tags:
   - astro
   - next
   - nuxt
+isPublish: true
 ---
 
 今天，Sonos（纳斯达克股票代码：SONO）推出了Sonos Roam，这是一款超便携的智能音响，能够在家中以及任何场景下呈现优秀的音效。Roam在家中可通过Wi-Fi完全连接到您的Sonos系统，而当您外出时会自动切换到蓝牙连接，强大的自适应音效使其能够以小巧体积呈现超乎预期的效果。得益于便捷的设置和控制以及新型智能功能，随时随地聆听美妙音乐和更多内容变得前所未有地方便。Roam重量不足0.5千克，美观、耐用的设计使其能够完美应对您的室内、后院和户外等各种使用场景。Roam自4月20日起发售，售价169美元。客户现在可在sonos.com上预订。
