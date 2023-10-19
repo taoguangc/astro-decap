@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+import FormattedDate from '@/components/FormattedDate.astro'
+import Image from '@/components/Image.astro'
+
+type Props = CollectionEntry<'posts'>['data']
+
+const { title, description, pubDate, heroImage } = Astro.props
+---
+
+<Layout title={title} description={description}>
+  <article class="container mx-auto px-4 py-8 lg:px-8 lg:py-24">
+    <h1 class="mb-12 text-5xl font-semibold leading-normal">{title}</h1>
+    <hr />
+    <h5 class="my-4 text-neutral-500">
+      <FormattedDate date={pubDate} />
+    </h5>
+    <div class="my-12">
+      {heroImage && <Image src={heroImage} alt={title} class="w-full" />}
+    </div>
+    <div class="prose prose-slate lg:prose-xl mx-auto max-w-3xl">
+      <slot />
+    </div>
+  </article>
+</Layout>

@@ -7,7 +7,7 @@ import PostCard from '@/components/PostCard.astro'
 import Pagination from '@/components/Pagination.astro'
 
 export interface Props {
-  page: Page<CollectionEntry<'blog'>>
+  page: Page<CollectionEntry<'posts'>>
 }
 const { page } = Astro.props
 const collectionPath = Astro.url.pathname.split('/')[1]
