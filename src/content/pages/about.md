@@ -16,6 +16,6 @@ blocks:
     title: 'Counter title'
     description: 'We have an extensive library of pre-written sales emails, proven marketing
     templates, and more to get you started on your next project.'
-    image: '/images/hero/hero-image-2.png'
+    image: '/images/hero/hero-image-3.png'
     image_alt: 'Reports dashboard'
 ---

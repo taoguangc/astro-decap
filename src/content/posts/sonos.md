@@ -2,7 +2,7 @@
 title: '了解Sonos Roam超便携式智能音响，让Sonos体验与您畅快随行'
 description: 'Sonos最智能且功能最全面的音响能够以小巧体积呈现惊人效果，易于设置和控制，在卓越、轻巧且耐用的设计中融入了新颖的创新功能。'
 pubDate: 'Jul 08 2023'
-heroImage: './blog-placeholder-3.jpg'
+heroImage: 'blog-placeholder-3.jpg'
 tags:
   - astro
   - next
